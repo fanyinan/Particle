@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFE899571E6E4756005B96A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899561E6E4756005B96A4 /* AppDelegate.swift */; };
+		CFE899591E6E4756005B96A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899581E6E4756005B96A4 /* ViewController.swift */; };
+		CFE8995C1E6E4756005B96A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE8995A1E6E4756005B96A4 /* Main.storyboard */; };
+		CFE8995E1E6E4756005B96A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFE8995D1E6E4756005B96A4 /* Assets.xcassets */; };
+		CFE899611E6E4756005B96A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFE8995F1E6E4756005B96A4 /* LaunchScreen.storyboard */; };
+		CFE899951E6E4783005B96A4 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE8997E1E6E4783005B96A4 /* SettingView.swift */; };
+		CFE899961E6E4783005B96A4 /* SettingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFE8997F1E6E4783005B96A4 /* SettingView.xib */; };
+		CFE899F51E6E9203005B96A4 /* Barrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899DF1E6E9203005B96A4 /* Barrier.swift */; };
+		CFE899F61E6E9203005B96A4 /* CGPoint+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899E01E6E9203005B96A4 /* CGPoint+extension.swift */; };
+		CFE899F71E6E9203005B96A4 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899E11E6E9203005B96A4 /* Dot.swift */; };
+		CFE899F81E6E9203005B96A4 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899E21E6E9203005B96A4 /* Line.swift */; };
+		CFE899F91E6E9203005B96A4 /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899E41E6E9203005B96A4 /* Array+extension.swift */; };
+		CFE899FA1E6E9203005B96A4 /* BaseEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899E51E6E9203005B96A4 /* BaseEffect.swift */; };
+		CFE899FB1E6E9203005B96A4 /* CoordinateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899E61E6E9203005B96A4 /* CoordinateConverter.swift */; };
+		CFE899FC1E6E9203005B96A4 /* DotEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899E71E6E9203005B96A4 /* DotEffect.swift */; };
+		CFE899FD1E6E9203005B96A4 /* DotFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CFE899E81E6E9203005B96A4 /* DotFragmentShader.glsl */; };
+		CFE899FE1E6E9203005B96A4 /* DotsRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899E91E6E9203005B96A4 /* DotsRender.swift */; };
+		CFE899FF1E6E9203005B96A4 /* DotVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CFE899EA1E6E9203005B96A4 /* DotVertexShader.glsl */; };
+		CFE89A001E6E9203005B96A4 /* LineEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899EB1E6E9203005B96A4 /* LineEffect.swift */; };
+		CFE89A011E6E9203005B96A4 /* LineFragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CFE899EC1E6E9203005B96A4 /* LineFragmentShader.glsl */; };
+		CFE89A021E6E9203005B96A4 /* LinesRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899ED1E6E9203005B96A4 /* LinesRender.swift */; };
+		CFE89A031E6E9203005B96A4 /* LineVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = CFE899EE1E6E9203005B96A4 /* LineVertexShader.glsl */; };
+		CFE89A041E6E9203005B96A4 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899EF1E6E9203005B96A4 /* Point.swift */; };
+		CFE89A051E6E9203005B96A4 /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899F01E6E9203005B96A4 /* Vertex.swift */; };
+		CFE89A061E6E9203005B96A4 /* ParticleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899F11E6E9203005B96A4 /* ParticleConfig.swift */; };
+		CFE89A071E6E9203005B96A4 /* ParticleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899F21E6E9203005B96A4 /* ParticleController.swift */; };
+		CFE89A081E6E9203005B96A4 /* ParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899F31E6E9203005B96A4 /* ParticleView.swift */; };
+		CFE89A091E6E9203005B96A4 /* ParticleView_Quartz2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE899F41E6E9203005B96A4 /* ParticleView_Quartz2D.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CFE899531E6E4756005B96A4 /* Particle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE899561E6E4756005B96A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CFE899581E6E4756005B96A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CFE8995B1E6E4756005B96A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CFE8995D1E6E4756005B96A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFE899601E6E4756005B96A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CFE899621E6E4756005B96A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFE8997E1E6E4783005B96A4 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		CFE8997F1E6E4783005B96A4 /* SettingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingView.xib; sourceTree = "<group>"; };
+		CFE899DF1E6E9203005B96A4 /* Barrier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Barrier.swift; sourceTree = "<group>"; };
+		CFE899E01E6E9203005B96A4 /* CGPoint+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+extension.swift"; sourceTree = "<group>"; };
+		CFE899E11E6E9203005B96A4 /* Dot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
+		CFE899E21E6E9203005B96A4 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		CFE899E41E6E9203005B96A4 /* Array+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
+		CFE899E51E6E9203005B96A4 /* BaseEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEffect.swift; sourceTree = "<group>"; };
+		CFE899E61E6E9203005B96A4 /* CoordinateConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateConverter.swift; sourceTree = "<group>"; };
+		CFE899E71E6E9203005B96A4 /* DotEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotEffect.swift; sourceTree = "<group>"; };
+		CFE899E81E6E9203005B96A4 /* DotFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DotFragmentShader.glsl; sourceTree = "<group>"; };
+		CFE899E91E6E9203005B96A4 /* DotsRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotsRender.swift; sourceTree = "<group>"; };
+		CFE899EA1E6E9203005B96A4 /* DotVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DotVertexShader.glsl; sourceTree = "<group>"; };
+		CFE899EB1E6E9203005B96A4 /* LineEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineEffect.swift; sourceTree = "<group>"; };
+		CFE899EC1E6E9203005B96A4 /* LineFragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineFragmentShader.glsl; sourceTree = "<group>"; };
+		CFE899ED1E6E9203005B96A4 /* LinesRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesRender.swift; sourceTree = "<group>"; };
+		CFE899EE1E6E9203005B96A4 /* LineVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LineVertexShader.glsl; sourceTree = "<group>"; };
+		CFE899EF1E6E9203005B96A4 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		CFE899F01E6E9203005B96A4 /* Vertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
+		CFE899F11E6E9203005B96A4 /* ParticleConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleConfig.swift; sourceTree = "<group>"; };
+		CFE899F21E6E9203005B96A4 /* ParticleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleController.swift; sourceTree = "<group>"; };
+		CFE899F31E6E9203005B96A4 /* ParticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleView.swift; sourceTree = "<group>"; };
+		CFE899F41E6E9203005B96A4 /* ParticleView_Quartz2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleView_Quartz2D.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFE899501E6E4756005B96A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFE8994A1E6E4756005B96A4 = {
+			isa = PBXGroup;
+			children = (
+				CFE899551E6E4756005B96A4 /* Particle */,
+				CFE899541E6E4756005B96A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFE899541E6E4756005B96A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFE899531E6E4756005B96A4 /* Particle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFE899551E6E4756005B96A4 /* Particle */ = {
+			isa = PBXGroup;
+			children = (
+				CFE899DE1E6E9203005B96A4 /* ParticleView */,
+				CFE8997E1E6E4783005B96A4 /* SettingView.swift */,
+				CFE8997F1E6E4783005B96A4 /* SettingView.xib */,
+				CFE899561E6E4756005B96A4 /* AppDelegate.swift */,
+				CFE899581E6E4756005B96A4 /* ViewController.swift */,
+				CFE8995A1E6E4756005B96A4 /* Main.storyboard */,
+				CFE8995D1E6E4756005B96A4 /* Assets.xcassets */,
+				CFE8995F1E6E4756005B96A4 /* LaunchScreen.storyboard */,
+				CFE899621E6E4756005B96A4 /* Info.plist */,
+			);
+			path = Particle;
+			sourceTree = "<group>";
+		};
+		CFE899DE1E6E9203005B96A4 /* ParticleView */ = {
+			isa = PBXGroup;
+			children = (
+				CFE899E31E6E9203005B96A4 /* OGL */,
+				CFE899DF1E6E9203005B96A4 /* Barrier.swift */,
+				CFE899E01E6E9203005B96A4 /* CGPoint+extension.swift */,
+				CFE899E11E6E9203005B96A4 /* Dot.swift */,
+				CFE899E21E6E9203005B96A4 /* Line.swift */,
+				CFE899F11E6E9203005B96A4 /* ParticleConfig.swift */,
+				CFE899F21E6E9203005B96A4 /* ParticleController.swift */,
+				CFE899F31E6E9203005B96A4 /* ParticleView.swift */,
+				CFE899F41E6E9203005B96A4 /* ParticleView_Quartz2D.swift */,
+			);
+			path = ParticleView;
+			sourceTree = SOURCE_ROOT;
+		};
+		CFE899E31E6E9203005B96A4 /* OGL */ = {
+			isa = PBXGroup;
+			children = (
+				CFE899E41E6E9203005B96A4 /* Array+extension.swift */,
+				CFE899E51E6E9203005B96A4 /* BaseEffect.swift */,
+				CFE899E61E6E9203005B96A4 /* CoordinateConverter.swift */,
+				CFE899E71E6E9203005B96A4 /* DotEffect.swift */,
+				CFE899E91E6E9203005B96A4 /* DotsRender.swift */,
+				CFE899EB1E6E9203005B96A4 /* LineEffect.swift */,
+				CFE899ED1E6E9203005B96A4 /* LinesRender.swift */,
+				CFE899EF1E6E9203005B96A4 /* Point.swift */,
+				CFE899F01E6E9203005B96A4 /* Vertex.swift */,
+				CFE899E81E6E9203005B96A4 /* DotFragmentShader.glsl */,
+				CFE899EA1E6E9203005B96A4 /* DotVertexShader.glsl */,
+				CFE899EC1E6E9203005B96A4 /* LineFragmentShader.glsl */,
+				CFE899EE1E6E9203005B96A4 /* LineVertexShader.glsl */,
+			);
+			path = OGL;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFE899521E6E4756005B96A4 /* Particle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFE899651E6E4756005B96A4 /* Build configuration list for PBXNativeTarget "Particle" */;
+			buildPhases = (
+				CFE8994F1E6E4756005B96A4 /* Sources */,
+				CFE899501E6E4756005B96A4 /* Frameworks */,
+				CFE899511E6E4756005B96A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Particle;
+			productName = Particle;
+			productReference = CFE899531E6E4756005B96A4 /* Particle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFE8994B1E6E4756005B96A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = fyn;
+				TargetAttributes = {
+					CFE899521E6E4756005B96A4 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4RQRV7P524;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CFE8994E1E6E4756005B96A4 /* Build configuration list for PBXProject "Particle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFE8994A1E6E4756005B96A4;
+			productRefGroup = CFE899541E6E4756005B96A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFE899521E6E4756005B96A4 /* Particle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFE899511E6E4756005B96A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE899961E6E4783005B96A4 /* SettingView.xib in Resources */,
+				CFE899611E6E4756005B96A4 /* LaunchScreen.storyboard in Resources */,
+				CFE89A031E6E9203005B96A4 /* LineVertexShader.glsl in Resources */,
+				CFE899FF1E6E9203005B96A4 /* DotVertexShader.glsl in Resources */,
+				CFE89A011E6E9203005B96A4 /* LineFragmentShader.glsl in Resources */,
+				CFE899FD1E6E9203005B96A4 /* DotFragmentShader.glsl in Resources */,
+				CFE8995E1E6E4756005B96A4 /* Assets.xcassets in Resources */,
+				CFE8995C1E6E4756005B96A4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFE8994F1E6E4756005B96A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFE89A061E6E9203005B96A4 /* ParticleConfig.swift in Sources */,
+				CFE89A071E6E9203005B96A4 /* ParticleController.swift in Sources */,
+				CFE899951E6E4783005B96A4 /* SettingView.swift in Sources */,
+				CFE899FE1E6E9203005B96A4 /* DotsRender.swift in Sources */,
+				CFE899FC1E6E9203005B96A4 /* DotEffect.swift in Sources */,
+				CFE89A001E6E9203005B96A4 /* LineEffect.swift in Sources */,
+				CFE899F61E6E9203005B96A4 /* CGPoint+extension.swift in Sources */,
+				CFE89A051E6E9203005B96A4 /* Vertex.swift in Sources */,
+				CFE899591E6E4756005B96A4 /* ViewController.swift in Sources */,
+				CFE899571E6E4756005B96A4 /* AppDelegate.swift in Sources */,
+				CFE899F51E6E9203005B96A4 /* Barrier.swift in Sources */,
+				CFE899F81E6E9203005B96A4 /* Line.swift in Sources */,
+				CFE89A021E6E9203005B96A4 /* LinesRender.swift in Sources */,
+				CFE899F71E6E9203005B96A4 /* Dot.swift in Sources */,
+				CFE89A041E6E9203005B96A4 /* Point.swift in Sources */,
+				CFE89A081E6E9203005B96A4 /* ParticleView.swift in Sources */,
+				CFE899F91E6E9203005B96A4 /* Array+extension.swift in Sources */,
+				CFE89A091E6E9203005B96A4 /* ParticleView_Quartz2D.swift in Sources */,
+				CFE899FB1E6E9203005B96A4 /* CoordinateConverter.swift in Sources */,
+				CFE899FA1E6E9203005B96A4 /* BaseEffect.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CFE8995A1E6E4756005B96A4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFE8995B1E6E4756005B96A4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CFE8995F1E6E4756005B96A4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFE899601E6E4756005B96A4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFE899631E6E4756005B96A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CFE899641E6E4756005B96A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFE899661E6E4756005B96A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4RQRV7P524;
+				INFOPLIST_FILE = Particle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fyn.Particle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CFE899671E6E4756005B96A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4RQRV7P524;
+				INFOPLIST_FILE = Particle/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fyn.Particle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFE8994E1E6E4756005B96A4 /* Build configuration list for PBXProject "Particle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFE899631E6E4756005B96A4 /* Debug */,
+				CFE899641E6E4756005B96A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFE899651E6E4756005B96A4 /* Build configuration list for PBXNativeTarget "Particle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFE899661E6E4756005B96A4 /* Debug */,
+				CFE899671E6E4756005B96A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFE8994B1E6E4756005B96A4 /* Project object */;
+}
