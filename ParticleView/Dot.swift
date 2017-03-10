@@ -38,13 +38,25 @@ class Dot {
     let horiOffset = end.x - start.x
     let verOffset = end.y - start.y
     
-    let tan_angle = abs(horiOffset / verOffset)
-    let sin_angle = sqrt(tan_angle * tan_angle / (tan_angle * tan_angle + 1))
-    let cos_angle = sin_angle / tan_angle
-    
-    xSpeed = sin_angle * (horiOffset > 0 ? speed : -speed)
-    ySpeed = cos_angle * (verOffset > 0 ? speed : -speed)
-
+    if horiOffset == 0 {
+      
+      xSpeed = 0
+      ySpeed = verOffset > 0 ? speed : -speed
+      
+    } else if verOffset == 0 {
+      
+      xSpeed = horiOffset > 0 ? speed : -speed
+      ySpeed = 0
+      
+    } else {
+      
+      let tan_angle = abs(horiOffset / verOffset)
+      let sin_angle = sqrt(tan_angle * tan_angle / (tan_angle * tan_angle + 1))
+      let cos_angle = sin_angle / tan_angle
+      
+      xSpeed = sin_angle * (horiOffset > 0 ? speed : -speed)
+      ySpeed = cos_angle * (verOffset > 0 ? speed : -speed)
+    }
   }
   
   func move() {
@@ -54,10 +66,16 @@ class Dot {
     
   }
   
-  func isDisplay(in rect: CGRect) -> Bool {
+  func distanceToBorderLineIfOutOfView(viewSize: CGSize) -> CGFloat? {
     
-    let dotRect = CGRect(x: center.x - radius, y: center.y - radius, width: 2 * radius, height: 2 * radius)
-
-    return dotRect.intersects(rect)
+    var distanceToBorderLine: CGFloat?
+    
+    if center.x < 0 || center.x > viewSize.width {
+      distanceToBorderLine = abs(center.x - viewSize.width / 2) - viewSize.width / 2
+    } else if center.y < 0 || center.y > viewSize.height {
+      distanceToBorderLine = abs(center.y - viewSize.height / 2) - viewSize.height / 2
+    }
+    
+    return distanceToBorderLine
   }
 }

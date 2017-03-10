@@ -12,9 +12,16 @@ class ParticleController {
   
   private var config: ParticleConfig
   private var viewSize = CGSize.zero
+  private var bounds: CGRect = CGRect.zero
+  private var displaybounds: CGRect = CGRect.zero //在这个范围外的dot消失
+
   private(set) var dots: [Dot] = []
   private(set) var lines: [Line] = []
   private var barrier: Barrier?
+  
+  private let maxDistanceToBorderLine: CGFloat = 10
+
+  private var generateDirectionDict: [DotDirection: Int] = [.top: 0, .left: 0, .bottom: 0, .right: 0]
   
   init(config: ParticleConfig) {
     self.config = config
@@ -23,12 +30,15 @@ class ParticleController {
   func update(with viewSize: CGSize) {
     
     self.viewSize = viewSize
+    self.bounds = CGRect(origin: CGPoint.zero, size: viewSize)
+    self.displaybounds = CGRect(x: -maxDistanceToBorderLine, y: -maxDistanceToBorderLine, width: viewSize.width + 2 * maxDistanceToBorderLine, height: viewSize.height + 2 * maxDistanceToBorderLine)
     
     updateDotCenter()
     addDotIfNeeded()
     removeDotIfNeeded()
     updateLines()
     
+
   }
   
   func addBarrier(at center: CGPoint) {
@@ -53,7 +63,7 @@ class ParticleController {
     let lackDotCount =  config.maxDotCount - dots.count
     
     guard lackDotCount > 0 else { return }
-    
+
     guard arc4random() % 2 == 1 else { return }
     
     let radius = CGFloat(arc4random() % UInt32(config.maxRadius - config.minRadius)) + config.minRadius
@@ -65,6 +75,9 @@ class ParticleController {
     let dot = Dot(start: startCenter, end: endCenter, radius: radius, speed: max(0.01, speed))
     dots.append(dot)
     
+    let v = generateDirectionDict[startDirection]!
+    generateDirectionDict[startDirection] = v + 1
+    print(generateDirectionDict)
   }
   
   private func getRandomDotCenter(with radius: CGFloat, exceptDiretion: DotDirection? = nil) -> (DotDirection, CGPoint) {
@@ -74,34 +87,36 @@ class ParticleController {
     let directionValue = arc4random() % 4
     var direction = DotDirection(rawValue: directionValue)!
     
+    //防止在同一侧出现和消失
     if direction == exceptDiretion {
       direction = DotDirection(rawValue: (directionValue + 1) % 4)!
     }
-    
-    //加0.1是为了时圆点在创建出来的时候，圆点的一部分在view里面，防止检测到不在view中被移除
+
+    //向内移动0.1，防止被移除
     switch direction {
     case .top:
-      return (direction, CGPoint(x: positionRatio * viewSize.width, y: -radius + 0.1))
+      return (direction, CGPoint(x: positionRatio * viewSize.width, y: -maxDistanceToBorderLine + 0.1))
     case .right:
-      return (direction, CGPoint(x: viewSize.width + radius - 0.1, y: positionRatio * viewSize.height))
+      return (direction, CGPoint(x: viewSize.width + maxDistanceToBorderLine - 0.1, y: positionRatio * viewSize.height))
     case .bottom:
-      return (direction, CGPoint(x: positionRatio * viewSize.width, y: radius + viewSize.height - 0.1))
+      return (direction, CGPoint(x: positionRatio * viewSize.width, y: maxDistanceToBorderLine + viewSize.height - 0.1))
     case .left:
-      return (direction, CGPoint(x: -radius + 0.1, y: positionRatio * viewSize.height))
+      return (direction, CGPoint(x: -maxDistanceToBorderLine + 0.1, y: positionRatio * viewSize.height))
     }
   }
   
   private func updateDotCenter() {
-
+    
     dots.forEach { dot in
       dot.move()
       barrier?.repulse(dot: dot)
+      
     }
   }
   
   private func removeDotIfNeeded() {
     
-    dots = dots.filter({$0.isDisplay(in: CGRect(origin: CGPoint.zero, size: viewSize))})
+    dots = dots.filter({displaybounds.contains($0.center)})
     
   }
   
@@ -116,6 +131,8 @@ class ParticleController {
       
       let startDot = dots[i]
       
+      let startDotDistanceToBorderLine = startDot.distanceToBorderLineIfOutOfView(viewSize: viewSize)
+      
       for j in (i + 1)..<dots.count {
       
         let endDot = dots[j]
@@ -124,24 +141,48 @@ class ParticleController {
         
         guard distance <= config.lineMaxLength else { continue }
         
+        var line: Line!
+        
         if currentLineCount < storedLineCount {
           
-          let line = lines[currentLineCount]
-          line.enable = true
-          line.start = startDot.center
-          line.end = endDot.center
-          line.maxLength = config.lineMaxLength
-          line.calculateColor()
+          line = lines[currentLineCount]
 
         } else {
           
-          lines.append(Line(start: startDot.center, end: endDot.center, maxLength: config.lineMaxLength))
+          line = Line()
+          lines.append(line)
 
         }
+        
+        //避免当dot消失和出现的时候，line会突然出现，使其有一个alpha渐变的效果
+        var lineAlphaFactor: CGFloat = 1
+        var distanceToBorderLine = startDotDistanceToBorderLine
+        
+        if distanceToBorderLine == nil {
+          distanceToBorderLine = endDot.distanceToBorderLineIfOutOfView(viewSize: viewSize)
+        }
+        
+        if let distanceToBorderLine = distanceToBorderLine {
+          lineAlphaFactor = 1 - distanceToBorderLine / maxDistanceToBorderLine
+        }
+        
+        line.enable = true
+        line.start = startDot.center
+        line.end = endDot.center
+        line.maxLength = config.lineMaxLength
+        line.lineAlphaFactor = lineAlphaFactor
+        line.calculateColor()
         
         currentLineCount += 1
 
       }
     }
   }
+  
+//  private func randomStartEndDirection() -> (DotDirection, DotDirection) {
+//    
+//    let directions: [DotDirection] = [.top, .right, .bottom, .left]
+//    let directionValue = arc4random() % 4
+//    
+//  }
 }
