@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Particle
 //
-//  Created by 范祎楠 on 2017/3/7.
+//  Created by fanyinan on 2017/3/7.
 //  Copyright © 2017年 fyn. All rights reserved.
 //
 

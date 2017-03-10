@@ -2,7 +2,7 @@
 //  Barrier.swift
 //  Particle-Quartz2D
 //
-//  Created by 范祎楠 on 2017/3/4.
+//  Created by fanyinan on 2017/3/4.
 //  Copyright © 2017年 fyn. All rights reserved.
 //
 

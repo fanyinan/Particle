@@ -2,7 +2,7 @@
 //  DotManager.swift
 //  Particle-Quartz2D
 //
-//  Created by 范祎楠 on 2017/3/2.
+//  Created by fanyinan on 2017/3/2.
 //  Copyright © 2017年 fyn. All rights reserved.
 //
 
@@ -20,8 +20,6 @@ class ParticleController {
   private var barrier: Barrier?
   
   private let maxDistanceToBorderLine: CGFloat = 10
-
-  private var generateDirectionDict: [DotDirection: Int] = [.top: 0, .left: 0, .bottom: 0, .right: 0]
   
   init(config: ParticleConfig) {
     self.config = config
@@ -67,41 +65,32 @@ class ParticleController {
     guard arc4random() % 2 == 1 else { return }
     
     let radius = CGFloat(arc4random() % UInt32(config.maxRadius - config.minRadius)) + config.minRadius
-    let (startDirection, startCenter) = getRandomDotCenter(with: radius)
-    let (_, endCenter) = getRandomDotCenter(with: radius, exceptDiretion: startDirection)
+    
+    let (startDirection, endDirection) = randomStartEndDirection()
+    let startCenter = getDotCenter(with: startDirection)
+    let endCenter = getDotCenter(with: endDirection)
 
     let speed = CGFloat(arc4random()) / CGFloat(UINT32_MAX) * (config.maxSpeed - config.minSpeed) + config.minSpeed
     
     let dot = Dot(start: startCenter, end: endCenter, radius: radius, speed: max(0.01, speed))
     dots.append(dot)
     
-    let v = generateDirectionDict[startDirection]!
-    generateDirectionDict[startDirection] = v + 1
-    print(generateDirectionDict)
   }
   
-  private func getRandomDotCenter(with radius: CGFloat, exceptDiretion: DotDirection? = nil) -> (DotDirection, CGPoint) {
+  private func getDotCenter(with direction: DotDirection) -> CGPoint {
     
     let positionRatio = CGFloat(arc4random()) / CGFloat(UINT32_MAX)
-    
-    let directionValue = arc4random() % 4
-    var direction = DotDirection(rawValue: directionValue)!
-    
-    //防止在同一侧出现和消失
-    if direction == exceptDiretion {
-      direction = DotDirection(rawValue: (directionValue + 1) % 4)!
-    }
 
     //向内移动0.1，防止被移除
     switch direction {
     case .top:
-      return (direction, CGPoint(x: positionRatio * viewSize.width, y: -maxDistanceToBorderLine + 0.1))
+      return CGPoint(x: positionRatio * viewSize.width, y: -maxDistanceToBorderLine + 0.1)
     case .right:
-      return (direction, CGPoint(x: viewSize.width + maxDistanceToBorderLine - 0.1, y: positionRatio * viewSize.height))
+      return CGPoint(x: viewSize.width + maxDistanceToBorderLine - 0.1, y: positionRatio * viewSize.height)
     case .bottom:
-      return (direction, CGPoint(x: positionRatio * viewSize.width, y: maxDistanceToBorderLine + viewSize.height - 0.1))
+      return CGPoint(x: positionRatio * viewSize.width, y: maxDistanceToBorderLine + viewSize.height - 0.1)
     case .left:
-      return (direction, CGPoint(x: -maxDistanceToBorderLine + 0.1, y: positionRatio * viewSize.height))
+      return CGPoint(x: -maxDistanceToBorderLine + 0.1, y: positionRatio * viewSize.height)
     }
   }
   
@@ -179,10 +168,17 @@ class ParticleController {
     }
   }
   
-//  private func randomStartEndDirection() -> (DotDirection, DotDirection) {
-//    
-//    let directions: [DotDirection] = [.top, .right, .bottom, .left]
-//    let directionValue = arc4random() % 4
-//    
-//  }
+  //生成两个不同的随机方向
+  private func randomStartEndDirection() -> (DotDirection, DotDirection) {
+    
+    let startDirectionValue = DotDirection(rawValue: arc4random() % 4)!
+    
+    var endDirectionValue = DotDirection(rawValue: arc4random() % 3 + 1)!
+    
+    if endDirectionValue == startDirectionValue {
+      endDirectionValue = .top
+    }
+    
+    return (startDirectionValue, endDirectionValue)
+  }
 }
