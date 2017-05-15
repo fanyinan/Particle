@@ -153,7 +153,7 @@ class SettingView: UIView {
       return result
     }
     
-    return self.superview?.subviews.filter({$0 is ParticleView}).first
+    return nil
   }
   
   private func initWidget() {

@@ -16,8 +16,6 @@ class DotsRender {
   private var vertexBuffer = GLuint()
   private var vertexArray = GLuint()
   private var vertice: [Point] = []
-
-  let splitRadian = M_PI_2 / 3
   
   init(coordinateConverter: CoordinateConverter) {
     

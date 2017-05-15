@@ -28,14 +28,5 @@ class Line {
     
     alpha = (1 - distance / maxLength) * lineAlphaFactor
     
-    let alpha_hex = Int(alpha * 255)
-    
-//    if let color = Line.colorPool[alpha_hex] {
-//      colorWithAlpha = color
-//    } else {
-//      colorWithAlpha = color.withAlphaComponent(CGFloat(alpha_hex) / 255)
-//      Line.colorPool[alpha_hex] = colorWithAlpha
-//    }
-    
   }
 }

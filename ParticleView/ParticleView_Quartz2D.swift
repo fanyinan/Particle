@@ -44,7 +44,7 @@ class ParticleView_Quartz: UIView {
     for dot in particleController.dots {
      
       dot.backgroundColor.set()
-      ctx.addArc(center: dot.center, radius: dot.radius, startAngle: CGFloat(0), endAngle: CGFloat(M_PI * 2), clockwise: true)
+      ctx.addArc(center: dot.center, radius: dot.radius, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
       ctx.fillPath()
       
     }
