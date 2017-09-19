@@ -35,7 +35,6 @@ class ParticleController {
     addDotIfNeeded()
     removeDotIfNeeded()
     updateLines()
-    
 
   }
   

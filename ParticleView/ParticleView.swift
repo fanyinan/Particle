@@ -67,7 +67,7 @@ class ParticleView: GLKView {
     particleController.removeBarrier()
   }
   
-  func updateLoop(_ displayLink: CADisplayLink) {
+  @objc func updateLoop(_ displayLink: CADisplayLink) {
     
     particleController.update(with: frame.size)
     
