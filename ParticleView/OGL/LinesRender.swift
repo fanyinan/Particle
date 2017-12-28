@@ -74,7 +74,7 @@ class LinesRender {
 
   }
   
-  func bufferOffset(_ offset :Int) -> UnsafeRawPointer {
+  private func bufferOffset(_ offset :Int) -> UnsafeRawPointer {
     return UnsafeRawPointer(bitPattern: offset)!
   }
 }

@@ -37,7 +37,7 @@ class SettingView: UIView {
   var operationView: UIView!
   var sliders: [UISlider] = []
   var valueLabels: [UILabel] = []
-
+  
   var config: ParticleConfig! {
     didSet{
       
@@ -45,9 +45,7 @@ class SettingView: UIView {
       dataSource.append(SettingItem(name: "max speed", range: Range(uncheckedBounds: (0.1, 10)), showValue: Float(config.maxSpeed)))
       dataSource.append(SettingItem(name: "min speed", range: Range(uncheckedBounds: (0.1, 10)), showValue: Float(config.minSpeed)))
       dataSource.append(SettingItem(name: "max length", range: Range(uncheckedBounds: (0, 300)), showValue: Float(config.lineMaxLength)))
-
-      initWidget()
-
+      
     }
   }
   
@@ -65,13 +63,26 @@ class SettingView: UIView {
     containerView.layer.masksToBounds = true
     containerView.layer.cornerRadius = 5
     
-    minSize = CGSize(width: widthConstraints.constant, height: heightConstraints.constant)
-    maxSize = CGSize(width: frame.width - leadingConstraints.constant * 2, height: frame.height - topConstraints.constant * 2)
-    
-    operationView = UIView(frame: CGRect(origin: CGPoint.zero, size: maxSize))
+    operationView = UIView()
     operationView.alpha = 0
     operationContainerView.addSubview(operationView)
     
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+    if operationView.subviews.isEmpty {
+      minSize = CGSize(width: widthConstraints.constant, height: heightConstraints.constant)
+      maxSize = CGSize(width: frame.width - leadingConstraints.constant * 2, height: frame.height - topConstraints.constant * 2)
+      
+      if #available(iOS 11, *) {
+         maxSize.height -= (safeAreaInsets.top + safeAreaInsets.bottom)
+      }
+      operationView.frame = CGRect(origin: CGPoint.zero, size: maxSize)
+      initWidget()
+    }
+
   }
   
   func update(_ fps: Int, dotsCount: Int, linesCount: Int) {
@@ -96,7 +107,7 @@ class SettingView: UIView {
       heightConstraints.constant = minSize.height
       operationViewAlpha = 0
     }
-
+    
     UIView.animate(withDuration: 0.2) {
       self.setNeedsLayout()
       self.layoutIfNeeded()
@@ -115,11 +126,11 @@ class SettingView: UIView {
     case 0:
       config.maxDotCount = Int(settingItem.showValue)
       valueLabels[index].text = "\(Int(settingItem.showValue))"
-
+      
     case 1:
       config.maxSpeed = CGFloat(settingItem.showValue)
       valueLabels[index].text = String(format: "%.1f", settingItem.showValue)
-
+      
       let minSpeedSettingItem = dataSource[2]
       minSpeedSettingItem.percentValue = min(minSpeedSettingItem.percentValue, settingItem.percentValue)
       sliders[2].value = minSpeedSettingItem.percentValue
@@ -129,7 +140,7 @@ class SettingView: UIView {
     case 2:
       config.minSpeed = CGFloat(settingItem.showValue)
       valueLabels[index].text = String(format: "%.1f", settingItem.showValue)
-
+      
       let maxSpeedSettingItem = dataSource[1]
       maxSpeedSettingItem.percentValue = max(maxSpeedSettingItem.percentValue, settingItem.percentValue)
       sliders[1].value = maxSpeedSettingItem.percentValue
@@ -139,7 +150,7 @@ class SettingView: UIView {
     case 3:
       config.lineMaxLength = CGFloat(settingItem.showValue)
       valueLabels[index].text = "\(Int(settingItem.showValue))"
-
+      
     default:
       break
     }
@@ -160,9 +171,9 @@ class SettingView: UIView {
     
     let height: CGFloat = 30
     let sliderMargin: CGFloat = 10
-
+    
     for (index, settingItem) in dataSource.enumerated() {
-     
+      
       let containerView = UIView(frame: CGRect(x: 0, y: (height + 20) * CGFloat(index) + 10, width: operationView.frame.width, height: height))
       operationView.addSubview(containerView)
       

@@ -10,7 +10,6 @@ import UIKit
 
 class Line {
   
-  static var colorPool: [Int: UIColor] = [:]
   private var color: UIColor = UIColor.white
   
   private(set) var colorWithAlpha: UIColor = UIColor.white

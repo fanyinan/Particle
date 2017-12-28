@@ -16,7 +16,7 @@ class ParticleConfig {
   var minRadius: CGFloat = 3
   
   var maxSpeed: CGFloat = 2
-  var minSpeed: CGFloat = 0.2
+  var minSpeed: CGFloat = 1
   
   var color = UIColor.white.withAlphaComponent(0.7)
   

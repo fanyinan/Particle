@@ -12,7 +12,9 @@ extension CGPoint {
   
   func distance(to point2: CGPoint) -> CGFloat {
     
-    return sqrt(abs(self.x - point2.x) * abs(self.x - point2.x) + abs(self.y - point2.y) * abs(self.y - point2.y))
+    let w = abs(self.x - point2.x)
+    let h = abs(self.y - point2.y)
+    return sqrt(w * w + h * h)
   }
 }
 
